@@ -21,10 +21,9 @@ spec:
           - name: vproapp-port
             containerPort: 8080
       initContainers:
-          #DB Initialization for the application
         - name: init-mydb
-          image: busybox
-          command: ['sh','-c','until nslookup vprodb; do echo waiting for mydb; sleep 2; done;']
+          image: busybox:1.31.1
+          command: ['sh', '-c', 'until nslookup vprodb; do echo waiting for mydb; sleep 2; done;']
         - name: init-memcache
-          image: busybox
-          command: ['sh','-c','until nslookup vprocache01; do echo waiting for mydb; sleep 2; done;']
+          image: busybox:1.31.1
+          command: ['sh', '-c', 'until nslookup vprocache01; do echo waiting for mycache; sleep 2; done;']

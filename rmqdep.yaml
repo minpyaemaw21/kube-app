@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vpromq01
@@ -22,7 +22,7 @@ spec:
             containerPort: 15672
           env:
           - name: RABBITMQ_DEFAULT_PASS
-            valuefrom:
+            valueFrom:
               secretKeyRef:
                 name: app-secret
                 key: rmq-pass
